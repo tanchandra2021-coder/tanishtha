@@ -1,429 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanishtha</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: #f5f5f7;
-            color: #1d1d1f;
-            overflow-x: hidden;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .quote {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            max-width: 1000px;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            line-height: 1.3;
-            animation: fadeInUp 1s ease;
-        }
-
-        .quote-author {
-            font-size: 1.1rem;
-            color: #6e7681;
-            font-weight: 400;
-            margin-bottom: 8rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        .intro-section {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            max-width: 1200px;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .intro-text {
-            flex: 1;
-        }
-
-        .greeting {
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: #1d1d1f;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .wave-emoji {
-            display: inline-block;
-            animation: wave 2s ease-in-out infinite;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: rotate(0deg); }
-            10%, 30% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            40% { transform: rotate(14deg); }
-            50% { transform: rotate(-4deg); }
-            60% { transform: rotate(10deg); }
-        }
-
-        .subgreeting {
-            font-size: 2rem;
-            color: #6e7681;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .smiley {
-            font-size: 2rem;
-        }
-
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05);
-        }
-
-        /* Navigation */
-        .nav-section {
-            background: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #6e7681;
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #1d1d1f;
-        }
-
-        /* Content Section */
-        .content {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #6e7681;
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        /* Origin Card with Typing Animation */
-        .origin-card {
-            background: white;
-            border-radius: 24px;
-            padding: 4rem;
-            margin: 4rem auto;
-            max-width: 1000px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .origin-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-        }
-
-        .origin-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #4a5568;
-            min-height: 200px;
-        }
-
-        .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background-color: #2c3e50;
-            margin-left: 2px;
-            animation: blink 1s step-end infinite;
-            vertical-align: text-bottom;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Project Cards with Slide Animation */
-        .projects-grid {
-            display: grid;
-            gap: 4rem;
-            margin-top: 4rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            transform: translateX(-100px);
-        }
-
-        .project-card.slide-in {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .project-card:nth-child(even) {
-            transform: translateX(100px);
-        }
-
-        .project-card:hover {
-            transform: translateY(-12px) rotateX(2deg);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-card:nth-child(2) .project-image {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .project-screenshot {
-            width: 90%;
-            height: 90%;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            color: #6e7681;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-screenshot {
-            transform: scale(1.02);
-        }
-
-        .project-content {
-            padding: 3rem;
-        }
-
-        .project-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #4a5568;
-            margin-bottom: 2rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .tech-tag {
-            background: #f0f0f2;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            color: #4a5568;
-            font-weight: 500;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            margin: 6rem auto;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .skill-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 16px;
-            text-align: center;
-            font-weight: 600;
-            color: #2c3e50;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .quote {
-                font-size: 1.8rem;
-            }
-
-            .intro-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .greeting {
-                font-size: 3rem;
-                justify-content: center;
-            }
-
-            .subgreeting {
-                font-size: 1.5rem;
-                justify-content: center;
-            }
-
-            .profile-image {
-                width: 200px;
-                height: 200px;
-            }
-
-            .origin-card,
-            .project-content {
-                padding: 2rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .project-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="quote">"A year from now you may wish you had started today."</div>
-        <div class="quote-author">- Karen Lamb</div>
-        
-        <div class="intro-section">
-            <div class="intro-text">
-                <h1 class="greeting">
-                    Hi <span class="wave-emoji">👋</span> I'm Tanishtha!
-                </h1>
-                <div class="subgreeting">
-                    <span class="smiley">:)</span>
-                    <span>nice to meet you!</span>
-                </div>
-            </div>
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
-                 alt="Profile" 
-                 class="profile-image">
-        </div>
-    </section>
-
-    <!-- Navigation -->
-    <nav class="nav-section">
-        <div class="nav-container">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#quotes" class="nav-link">Quotes</a>
-            <a href="#art" class="nav-link">Art</a>
-        </div>
-    </nav>
-
-    <!-- Origin Section -->
-    <section class="content">
-        <div class="origin-card">
-            <h2 class="origin-title">Origin</h2>
-            <div class="origin-text" id="typingText"></div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
+<!-- Projects Section -->
     <section class="content" id="projects">
         <h2 class="section-title">Check out my latest work</h2>
         <p class="section-subtitle">My projects blend technology with social impact. Here are some highlights.</p>
@@ -431,12 +6,13 @@
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
-                    <div class="project-screenshot">
-                        Community Voices Platform Preview
-                    </div>
+                    <video class="project-video" autoplay loop muted playsinline>
+                        <source src="Her_Story.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Their Voices</h3>
+                    <h3 class="project-title">HerStory</h3>
                     <p class="project-description">
                         An interactive platform designed to amplify underrepresented narratives and foster meaningful dialogue. This project combines storytelling with data visualization to create powerful connections between communities and their stories.
                     </p>
@@ -452,12 +28,13 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <div class="project-screenshot">
-                        Financial Analysis Dashboard Preview
-                    </div>
+                    <video class="project-video" autoplay loop muted playsinline>
+                        <source src="NLP FINANCE.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">NLP+Finance</h3>
+                    <h3 class="project-title">BuzzTrade - NLP + Finance</h3>
                     <p class="project-description">
                         A natural language processing tool that analyzes financial documents and market sentiment to provide actionable insights. Leveraging advanced machine learning algorithms to decode complex financial data into clear, accessible information.
                     </p>
@@ -470,94 +47,27 @@
                     </div>
                 </div>
             </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <video class="project-video" autoplay loop muted playsinline>
+                        <source src="Healthy_Habits.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Healthy Habits</h3>
+                    <p class="project-description">
+                        A comprehensive wellness tracking application that helps users build and maintain healthy routines. Features personalized goal setting, progress tracking, and data-driven insights to support sustainable lifestyle changes.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
-    <!-- Skills Section -->
-    <section class="content skills-section">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item">Python</div>
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">React</div>
-            <div class="skill-item">Node.js</div>
-            <div class="skill-item">Machine Learning</div>
-            <div class="skill-item">NLP</div>
-            <div class="skill-item">Data Analysis</div>
-            <div class="skill-item">MongoDB</div>
-            <div class="skill-item">PostgreSQL</div>
-            <div class="skill-item">D3.js</div>
-            <div class="skill-item">Flask</div>
-            <div class="skill-item">TailwindCSS</div>
-        </div>
-    </section>
-
-    <script>
-        // Typing animation for origin text
-        const originText = "I'm passionate about leveraging technology to create meaningful change. My journey spans across data science, web development, and social innovation. I believe in building tools that not only solve problems but also empower communities and individuals to tell their stories and make informed decisions.";
-        
-        let i = 0;
-        const typingElement = document.getElementById('typingText');
-        const cursor = document.createElement('span');
-        cursor.className = 'typing-cursor';
-        
-        function typeWriter() {
-            if (i < originText.length) {
-                typingElement.textContent += originText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 30);
-            } else {
-                typingElement.appendChild(cursor);
-            }
-        }
-
-        // Start typing when origin card is in view
-        const originObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && i === 0) {
-                    typeWriter();
-                }
-            });
-        }, { threshold: 0.5 });
-
-        originObserver.observe(document.querySelector('.origin-card'));
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Slide-in animation for project cards
-        const projectObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('slide-in');
-                }
-            });
-        }, {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        });
-
-        document.querySelectorAll('.project-card').forEach(card => {
-            projectObserver.observe(card);
-        });
-
-        // Parallax effect on hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-                hero.style.opacity = 1 - scrolled / 800;
-            }
-        });
-    </script>
-</body>
-</html>
