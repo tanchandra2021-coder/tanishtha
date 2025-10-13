@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanishtha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #f5f5f7;
             color: #1d1d1f;
             overflow-x: hidden;
@@ -30,22 +31,26 @@
         }
 
         .quote {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 500;
             text-align: center;
             max-width: 1000px;
             margin-bottom: 1rem;
             color: #2c3e50;
-            line-height: 1.3;
+            line-height: 1.4;
             animation: fadeInUp 1s ease;
+            letter-spacing: 0.5px;
         }
 
         .quote-author {
+            font-family: 'Lato', sans-serif;
             font-size: 1.1rem;
             color: #6e7681;
-            font-weight: 400;
+            font-weight: 300;
             margin-bottom: 8rem;
             animation: fadeInUp 1s ease 0.2s backwards;
+            font-style: italic;
         }
 
         .intro-section {
@@ -61,8 +66,9 @@
         }
 
         .greeting {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 4.5rem;
-            font-weight: 700;
+            font-weight: 600;
             color: #1d1d1f;
             margin-bottom: 1rem;
             display: flex;
@@ -86,11 +92,13 @@
         }
 
         .subgreeting {
+            font-family: 'Lato', sans-serif;
             font-size: 2rem;
             color: #6e7681;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-weight: 300;
         }
 
         .smiley {
@@ -130,12 +138,14 @@
         }
 
         .nav-link {
+            font-family: 'Lato', sans-serif;
             text-decoration: none;
             color: #6e7681;
             font-size: 1.1rem;
-            font-weight: 500;
+            font-weight: 400;
             padding: 0.5rem 1rem;
             transition: color 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         .nav-link:hover {
@@ -144,27 +154,36 @@
 
         /* Content Section */
         .content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 4rem auto;
             padding: 0 2rem;
         }
 
         .section-title {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.8rem;
+            font-weight: 600;
             color: #2c3e50;
             margin-bottom: 1rem;
             text-align: center;
+            letter-spacing: 1px;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.3rem;
             color: #6e7681;
             text-align: center;
             margin-bottom: 4rem;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 4rem;
         }
 
-        /* Origin Card with Typing Animation */
+        /* About Me Card with Typing Animation */
         .origin-card {
             background: white;
             border-radius: 24px;
@@ -175,17 +194,21 @@
         }
 
         .origin-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
             color: #2c3e50;
             margin-bottom: 2rem;
+            letter-spacing: 0.5px;
         }
 
         .origin-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.25rem;
+            line-height: 1.9;
             color: #4a5568;
             min-height: 200px;
+            font-weight: 300;
         }
 
         .typing-cursor {
@@ -206,7 +229,7 @@
         /* Project Cards with Slide Animation */
         .projects-grid {
             display: grid;
-            gap: 4rem;
+            gap: 5rem;
             margin-top: 4rem;
         }
 
@@ -236,7 +259,7 @@
 
         .project-image {
             width: 100%;
-            height: 500px;
+            height: 700px;
             background: #000;
             position: relative;
             overflow: hidden;
@@ -248,7 +271,7 @@
         .project-video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.3s ease;
         }
 
@@ -257,21 +280,25 @@
         }
 
         .project-content {
-            padding: 3rem;
+            padding: 3.5rem;
         }
 
         .project-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
             color: #2c3e50;
             margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
         }
 
         .project-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.9;
             color: #4a5568;
             margin-bottom: 2rem;
+            font-weight: 300;
         }
 
         .tech-stack {
@@ -281,12 +308,14 @@
         }
 
         .tech-tag {
+            font-family: 'Lato', sans-serif;
             background: #f0f0f2;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 8px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #4a5568;
-            font-weight: 500;
+            font-weight: 400;
+            letter-spacing: 0.3px;
         }
 
         /* Skills Section */
@@ -303,14 +332,16 @@
         }
 
         .skill-item {
+            font-family: 'Lato', sans-serif;
             background: white;
             padding: 1.5rem;
             border-radius: 16px;
             text-align: center;
-            font-weight: 600;
+            font-weight: 400;
             color: #2c3e50;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         .skill-item:hover {
@@ -333,7 +364,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             .quote {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .intro-section {
@@ -367,6 +398,10 @@
 
             .project-title {
                 font-size: 2rem;
+            }
+
+            .project-image {
+                height: 400px;
             }
         }
     </style>
@@ -403,10 +438,10 @@
         </div>
     </nav>
 
-    <!-- Origin Section -->
+    <!-- About Me Section -->
     <section class="content">
         <div class="origin-card">
-            <h2 class="origin-title">Origin</h2>
+            <h2 class="origin-title">About Me</h2>
             <div class="origin-text" id="typingText"></div>
         </div>
     </section>
@@ -414,27 +449,25 @@
     <!-- Projects Section -->
     <section class="content" id="projects">
         <h2 class="section-title">Check out my latest work</h2>
-        <p class="section-subtitle">My projects blend technology with social impact. Here are some highlights.</p>
+        <p class="section-subtitle">My projects leverage AI to make a positive impact on both my local community and the world at large. Here are the ones I'm most proud of:</p>
         
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
                     <video class="project-video" autoplay loop muted playsinline>
-                        <source src="Her_Story.mp4" type="video/mp4">
+                        <source src="Her_Story.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">HerStory</h3>
                     <p class="project-description">
-                        An interactive platform designed to amplify underrepresented narratives and foster meaningful dialogue. This project combines storytelling with data visualization to create powerful connections between communities and their stories.
+                        Connects girls and people in underrepresented communities to AI representations of women leaders like Michelle Obama and Sheryl Sandberg to learn more about finance. These communities often need financial education and that extra motivational push these women leaders can provide, but are the least likely to have access to it. That's why I made this app.
                     </p>
                     <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">D3.js</span>
-                        <span class="tech-tag">TailwindCSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
                     </div>
                 </div>
             </div>
@@ -447,16 +480,15 @@
                     </video>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">BuzzTrade - NLP + Finance</h3>
+                    <h3 class="project-title">BuzzTrade - Stock Sentiment Predictor</h3>
                     <p class="project-description">
-                        A natural language processing tool that analyzes financial documents and market sentiment to provide actionable insights. Leveraging advanced machine learning algorithms to decode complex financial data into clear, accessible information.
+                        Fine-tuned the FinBERT model and leveraged NLP to help users understand how a piece of news or social media tweet can impact the performance of a stock, as well as how tariff news can impact investor sentiment.
                     </p>
                     <div class="tech-stack">
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NLTK</span>
-                        <span class="tech-tag">Transformers</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Jupyter Notebook</span>
                     </div>
                 </div>
             </div>
@@ -471,14 +503,12 @@
                 <div class="project-content">
                     <h3 class="project-title">Healthy Habits</h3>
                     <p class="project-description">
-                        A comprehensive wellness tracking application that helps users build and maintain healthy routines. Features personalized goal setting, progress tracking, and data-driven insights to support sustainable lifestyle changes.
+                        Inspired by my struggles with ADD, I created a planner that leverages AI to work around student learning disabilities like ADHD, dyslexia, and auditory processing disorder to plan study and homework schedules, while including healthy habits like showering, eating, and taking breaks.
                     </p>
                     <div class="tech-stack">
-                        <span class="tech-tag">React Native</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Chart.js</span>
-                        <span class="tech-tag">Redux</span>
-                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
                     </div>
                 </div>
             </div>
@@ -505,8 +535,8 @@
     </section>
 
     <script>
-        // Typing animation for origin text
-        const originText = "I'm passionate about leveraging technology to create meaningful change. My journey spans across data science, web development, and social innovation. I believe in building tools that not only solve problems but also empower communities and individuals to tell their stories and make informed decisions.";
+        // Typing animation for About Me text
+        const originText = "I'm passionate about leveraging technology and finance to empower underserved communities and women. My journey spans across web development, economics, and social innovation. In my free time, I love trying out different types of coffee, exploring new restaurants, and spending time with my family!";
         
         let i = 0;
         const typingElement = document.getElementById('typingText');
@@ -523,7 +553,7 @@
             }
         }
 
-        // Start typing when origin card is in view
+        // Start typing when About Me card is in view
         const originObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && i === 0) {
