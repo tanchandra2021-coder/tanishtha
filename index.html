@@ -312,7 +312,7 @@
         .project-video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.4s ease;
         }
 
@@ -520,7 +520,7 @@
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
-                    <video class="project-video" autoplay loop muted playsinline>
+                    <video class="project-video" loop muted playsinline>
                         <source src="Her_Story.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -540,7 +540,7 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <video class="project-video" autoplay loop muted playsinline>
+                    <video class="project-video" loop muted playsinline>
                         <source src="FINANCE.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -561,7 +561,7 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <video class="project-video" autoplay loop muted playsinline>
+                    <video class="project-video" loop muted playsinline>
                         <source src="Healthy_Habits.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -615,18 +615,6 @@
                     <h3 class="project-title">Wealth Management Intern @ JPMorgan Chase</h3>
                     <p class="project-description">
                         Learning how equities, bonds, mutual funds, and other investment vehicles are strategically used in wealth management to grow and preserve client assets. Gaining valuable insights into portfolio construction, risk management, and the comprehensive wealth management strategies that help clients achieve their financial goals.
-                    </p>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="accounting.webp" alt="Accounting" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Accounting & Finance Intern @ Lake Forest High School, West Campus</h3>
-                    <p class="project-description">
-                        Gaining practical experience in a business office environment, handling accounts payable and receivable, assisting with budget preparation and financial reporting, maintaining financial records, and learning the day-to-day operations of organizational accounting practices.
                     </p>
                 </div>
             </div>
@@ -751,6 +739,28 @@
 
         document.querySelectorAll('.project-card').forEach(card => {
             projectObserver.observe(card);
+        });
+
+        // Video autoplay on scroll into view
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target.querySelector('.project-video');
+                if (video) {
+                    if (entry.isIntersecting) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            if (card.querySelector('.project-video')) {
+                videoObserver.observe(card);
+            }
         });
 
         // Parallax effect on hero
