@@ -135,6 +135,7 @@
             display: flex;
             gap: 2rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .nav-link {
@@ -275,7 +276,15 @@
             transition: transform 0.3s ease;
         }
 
-        .project-card:hover .project-video {
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-video,
+        .project-card:hover .project-img {
             transform: scale(1.05);
         }
 
@@ -409,8 +418,8 @@
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="quote">"A year from now you may wish you had started today."</div>
-        <div class="quote-author">- Karen Lamb</div>
+        <div class="quote">"I get up, I walk, I fall down...meanwhile, I keep dancing."</div>
+        <div class="quote-author">- Rabbi Hillel</div>
         
         <div class="intro-section">
             <div class="intro-text">
@@ -422,8 +431,8 @@
                     <span>nice to meet you!</span>
                 </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
-                 alt="Profile" 
+            <img src="TANISHTHA PASSPORT 1.jpg" 
+                 alt="Tanishtha" 
                  class="profile-image">
         </div>
     </section>
@@ -433,8 +442,9 @@
         <div class="nav-container">
             <a href="#home" class="nav-link">Home</a>
             <a href="#projects" class="nav-link">Projects</a>
-            <a href="#quotes" class="nav-link">Quotes</a>
-            <a href="#art" class="nav-link">Art</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#internships" class="nav-link">Internships</a>
+            <a href="#initiatives" class="nav-link">Initiatives</a>
         </div>
     </nav>
 
@@ -455,7 +465,7 @@
             <div class="project-card">
                 <div class="project-image">
                     <video class="project-video" autoplay loop muted playsinline>
-                        <source src="Her_Story.mp4" type="video/mp4">
+                        <source src="Her_Story.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -480,7 +490,7 @@
                     </video>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">BuzzTrade - NLP + Finance, Stock Sentiment Predictor</h3>
+                    <h3 class="project-title">BuzzTrade - Stock Sentiment Predictor</h3>
                     <p class="project-description">
                         Fine-tuned the FinBERT model and leveraged NLP to help users understand how a piece of news or social media tweet can impact the performance of a stock, as well as how tariff news can impact investor sentiment.
                     </p>
@@ -510,6 +520,102 @@
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="content" id="research">
+        <h2 class="section-title">Research</h2>
+        <p class="section-subtitle">Exploring innovative solutions at the intersection of technology and social impact.</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="research.jpg" alt="Research" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Companions as Non-Judgmental Allies</h3>
+                    <p class="project-description">
+                        Democratizing Financial and Mental Health Support for Underserved Communities. Financial burdens significantly worsen mental health amongst low-income populations, creating a devastating cycle that's difficult to break. I'm investigating how AI companions can be used to lessen the financial burden and therefore address mental health issues, particularly because low-income communities don't have adequate access to these critical resources. By providing non-judgmental, accessible support through AI, we can begin to bridge this gap and offer meaningful assistance to those who need it most.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internships Section -->
+    <section class="content" id="internships">
+        <h2 class="section-title">Internships</h2>
+        <p class="section-subtitle">Gaining hands-on experience in finance and business operations.</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="wealth management.jpeg" alt="Wealth Management" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Wealth Management Intern @ JPMorgan Chase</h3>
+                    <p class="project-description">
+                        Learning how equities, bonds, mutual funds, and other investment vehicles are strategically used in wealth management to grow and preserve client assets. Gaining valuable insights into portfolio construction, risk management, and the comprehensive wealth management strategies that help clients achieve their financial goals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="accounting.jpg" alt="Accounting" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Accounting & Finance Intern @ Lake Forest High School, West Campus</h3>
+                    <p class="project-description">
+                        Gaining practical experience in a business office environment, handling accounts payable and receivable, assisting with budget preparation and financial reporting, maintaining financial records, and learning the day-to-day operations of organizational accounting practices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiatives Section -->
+    <section class="content" id="initiatives">
+        <h2 class="section-title">Initiatives I've Started</h2>
+        <p class="section-subtitle">Empowering communities through education, mentorship, and opportunity.</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="Connect&Expand.png" alt="Connect&Expand" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Connect&Expand</h3>
+                    <p class="project-description">
+                        I was inspired to offer business-related internship and shadowing opportunities after seeing the lack of them offered and the hesitance girls in my community had pursuing finance-related careers. Through Connect&Expand, I'm creating pathways for young women to explore business and finance through meaningful mentorship and real-world experience.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="Hackathon.png" alt="STEMPowerHer Hackathon" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">STEMPowerHer Hackathon</h3>
+                    <p class="project-description">
+                        I realized that underserved communities across the globe have unique problems that only they themselves can solve because they have experienced them firsthand. To motivate girls to explore business and AI to create socially impactful solutions, I started this hackathon. Over 85 signups internationally and growing!
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="Journal.png" alt="STEMPowerHer Journal" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">STEMPowerHer International Community Journal</h3>
+                    <p class="project-description">
+                        I realized that STEM & AI education isn't prevalent worldwide, so I wanted to expand access to help girls realize what careers interested them and connect like-minded individuals. Through this journal, we're building a global community of young women passionate about STEM. Almost 30 signups internationally and growing!
+                    </p>
                 </div>
             </div>
         </div>
@@ -575,7 +681,7 @@
             });
         });
 
-        // Slide-in animation for project cards
+        // Slide-in animation for all project cards
         const projectObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
