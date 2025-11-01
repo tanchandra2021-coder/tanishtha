@@ -143,6 +143,10 @@
             flex-wrap: wrap;
         }
 
+        .nav-item {
+            position: relative;
+        }
+
         .nav-link {
             font-family: 'Lato', sans-serif;
             text-decoration: none;
@@ -153,6 +157,7 @@
             transition: all 0.3s ease;
             letter-spacing: 0.5px;
             position: relative;
+            display: block;
         }
 
         .nav-link::after {
@@ -173,6 +178,60 @@
 
         .nav-link:hover::after {
             width: 80%;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            min-width: 250px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeInDown 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: #6e7681;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(44, 62, 80, 0.05);
+            color: #1d1d1f;
+            padding-left: 2rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
         }
 
         /* Content Section */
@@ -243,6 +302,7 @@
             color: #4a5568;
             min-height: 200px;
             font-weight: 300;
+            white-space: pre-wrap;
         }
 
         .typing-cursor {
@@ -449,6 +509,17 @@
             .project-image {
                 height: 320px;
             }
+
+            .dropdown-content {
+                position: static;
+                transform: none;
+                margin-top: 0.5rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 0;
+            }
         }
     </style>
 </head>
@@ -477,16 +548,30 @@
     <!-- Navigation -->
     <nav class="nav-section">
         <div class="nav-container">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#research" class="nav-link">Research</a>
-            <a href="#internships" class="nav-link">Internships</a>
-            <a href="#initiatives" class="nav-link">Initiatives</a>
+            <div class="nav-item">
+                <a href="#home" class="nav-link">Home</a>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#projects" class="nav-link">Projects</a>
+                <div class="dropdown-content">
+                    <a href="#ai-financial">AI for Financial Access</a>
+                    <a href="#ai-accessibility">AI for Accessibility</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#research" class="nav-link">Research</a>
+            </div>
+            <div class="nav-item">
+                <a href="#internships" class="nav-link">Internships</a>
+            </div>
+            <div class="nav-item">
+                <a href="#initiatives" class="nav-link">Leadership & Community-Building</a>
+            </div>
         </div>
     </nav>
 
     <!-- About Me Section -->
-    <section class="content">
+    <section class="content" id="home">
         <div class="origin-card">
             <h2 class="origin-title">About Me</h2>
             <div class="origin-text" id="typingText"></div>
@@ -498,69 +583,80 @@
         <h2 class="section-title">Check out my latest work</h2>
         <p class="section-subtitle">I build AI tools that democratize access to financial education and mental health support for underserved communities. Here are the projects I'm most proud of:</p>
         
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <video class="project-video" loop muted playsinline>
-                        <source src="Her_Story.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+        <!-- AI for Financial Access -->
+        <div id="ai-financial" style="scroll-margin-top: 100px;">
+            <h3 class="section-title" style="font-size: 2.5rem; margin-top: 3rem; margin-bottom: 2rem;">AI for Financial Access</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <video class="project-video" loop muted playsinline>
+                            <source src="Her_Story.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">HerStory</h3>
+                        <p class="project-description">
+                            Young girls from underrepresented communities face two barriers to financial literacy: lack of access to quality education and lack of relatable mentors who look like them. HerStory uses AI-powered conversations with women leaders like Michelle Obama and Sheryl Sandberg to teach financial concepts in an engaging, personalized way. Users can ask questions, receive guidance, and learn from role models who understand their challenges firsthand.
+                            <br><br>
+                            Please visit my app <a href="https://herstoryvercel.vercel.app/" target="_blank" class="project-link">here</a>
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-content">
-                    <h3 class="project-title">HerStory</h3>
-                    <p class="project-description">
-                        Young girls from underrepresented communities face two barriers to financial literacy: lack of access to quality education and lack of relatable mentors who look like them. HerStory uses AI-powered conversations with women leaders like Michelle Obama and Sheryl Sandberg to teach financial concepts in an engaging, personalized way. Users can ask questions, receive guidance, and learn from role models who understand their challenges firsthand.
-                        <br><br>
-                        Please visit my app <a href="https://herstoryvercel.vercel.app/" target="_blank" class="project-link">here</a>
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <video class="project-video" loop muted playsinline>
+                            <source src="FINANCE.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">BuzzTrade - NLP + Finance, Stock Sentiment Predictor</h3>
+                        <p class="project-description">
+                            Financial news moves markets, but most people can't decode how headlines translate to investment decisions. BuzzTrade analyzes social media posts and news articles to predict their impact on stock prices and investor sentiment. Whether you're a beginner trying to understand market reactions or an investor tracking sentiment shifts from tariff announcements, BuzzTrade makes financial information accessible.
+                            <br><br>
+                            Please visit my app <a href="https://nlp-for-finance-app.vercel.app/" target="_blank" class="project-link">here</a>
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Jupyter Notebook</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="project-card">
-                <div class="project-image">
-                    <video class="project-video" loop muted playsinline>
-                        <source src="FINANCE.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">BuzzTrade - NLP + Finance, Stock Sentiment Predictor</h3>
-                    <p class="project-description">
-                        Financial news moves markets, but most people can't decode how headlines translate to investment decisions. BuzzTrade analyzes social media posts and news articles to predict their impact on stock prices and investor sentiment. Whether you're a beginner trying to understand market reactions or an investor tracking sentiment shifts from tariff announcements, BuzzTrade makes financial information accessible.
-                        <br><br>
-                        Please visit my app <a href="https://nlp-for-finance-app.vercel.app/" target="_blank" class="project-link">here</a>
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Jupyter Notebook</span>
+        <!-- AI for Accessibility -->
+        <div id="ai-accessibility" style="scroll-margin-top: 100px;">
+            <h3 class="section-title" style="font-size: 2.5rem; margin-top: 5rem; margin-bottom: 2rem;">AI for Accessibility</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <video class="project-video" loop muted playsinline>
+                            <source src="Healthy_Habits.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <video class="project-video" loop muted playsinline>
-                        <source src="Healthy_Habits.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Healthy Habits</h3>
-                    <p class="project-description">
-                        Living with ADD taught me that traditional planners don't work for everyone. HealthyHabits uses AI to create personalized study schedules that accommodate learning disabilities like ADHD, dyslexia, and auditory processing disorder. Unlike typical planners, it prioritizes mental and physical health by scheduling breaks, meals, and self-care alongside academic work - because productivity means nothing without wellness.
-                        Please visit my app <a href="https://healthy-habits-planner.vercel.app/" target="_blank" class="project-link">here</a>
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
+                    <div class="project-content">
+                        <h3 class="project-title">Healthy Habits</h3>
+                        <p class="project-description">
+                            Living with ADD taught me that traditional planners don't work for everyone. HealthyHabits uses AI to create personalized study schedules that accommodate learning disabilities like ADHD, dyslexia, and auditory processing disorder. Unlike typical planners, it prioritizes mental and physical health by scheduling breaks, meals, and self-care alongside academic work - because productivity means nothing without wellness.
+                            <br><br>
+                            Please visit my app <a href="https://healthy-habits-planner.vercel.app/" target="_blank" class="project-link">here</a>
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -600,13 +696,16 @@
                 <div class="project-content">
                     <h3 class="project-title">Wealth Management Intern @ JPMorgan Chase</h3>
                     <p class="project-description">
-                        At JPMorgan's Wealth Management division, I'm learning how high-net-worth clients build and protect wealth through strategic portfolio construction. Working with tools like Modern Portfolio Theory and eMoney Advisor has shown me the sophisticated resources available to wealthy clients - resources that inspired me to ask: how can we make these insights accessible to everyone, not just the 1%
+                        At JPMorgan's Wealth Management division, I'm learning how high-net-worth clients build and protect wealth through strategic portfolio construction. Working with tools like Modern Portfolio Theory and eMoney Advisor has shown me the sophisticated resources available to wealthy clients - resources that inspired me to ask: how can we make these insights accessible to everyone, not just the 1%?
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Initiatives Section -->
     <section class="content" id="initiatives">
-        <h2 class="section-title">Initiatives I've Started</h2>
+        <h2 class="section-title">Leadership & Community-Building</h2>
         <p class="section-subtitle">Empowering communities through education, mentorship, and opportunity.</p>
         
         <div class="projects-grid">
@@ -650,14 +749,13 @@
 
     <script>
         // Typing animation for About Me text
-        const originText = "
-I'm a high school senior from Lake Forest, Illinois, passionate about using AI to democratize financial access for underserved communities. My work sits at the intersection of technology, finance, and social impact.
+        const originText = `I'm a high school senior from Lake Forest, Illinois, passionate about using AI to democratize financial access for underserved communities. My work sits at the intersection of technology, finance, and social impact.
 
 I've built AI apps that teach financial literacy, founded a global hackathon for girls in STEM, and conducted research on how AI companions can provide non-judgmental financial and mental health support to those who need it most.
 
 When I'm not coding or organizing events, you'll find me exploring boutique coffee shops, trying new restaurants, or spending time with my family.
 
-**Currently:** Interning at JPMorgan Wealth Management | Researching AI for financial inclusion | Building the next generation of STEMPowerHer";
+Currently: Interning at JPMorgan Wealth Management | Researching AI for financial inclusion | Building the next generation of STEMPowerHer`;
         
         let i = 0;
         const typingElement = document.getElementById('typingText');
