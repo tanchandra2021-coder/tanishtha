@@ -455,6 +455,97 @@
             transform: translateY(-2px);
         }
 
+        /* Challenges Section */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(40px);
+            text-align: center;
+        }
+
+        .challenge-card.slide-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .challenge-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .challenge-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .challenge-description {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #4a5568;
+            font-weight: 300;
+        }
+
+        .growth-note {
+            margin-top: 3rem;
+            text-align: center;
+            background: rgba(44, 62, 80, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3rem;
+        }
+
+        .growth-note p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+            font-style: italic;
+            margin: 0;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -563,6 +654,9 @@
             </div>
             <div class="nav-item">
                 <a href="#internships" class="nav-link">Internships</a>
+            </div>
+            <div class="nav-item">
+                <a href="#challenges" class="nav-link">Challenges & Growth</a>
             </div>
             <div class="nav-item">
                 <a href="#initiatives" class="nav-link">Leadership & Community-Building</a>
@@ -680,6 +774,42 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Challenges and Growth Section -->
+    <section class="content" id="challenges">
+        <h2 class="section-title">Challenges & Growth</h2>
+        <p class="section-subtitle">Building technology for social impact isn't straightforward. Here are some challenges I'm wrestling with:</p>
+        
+        <div class="challenges-grid">
+            <div class="challenge-card">
+                <div class="challenge-icon">🌐</div>
+                <h3 class="challenge-title">Digital Divide</h3>
+                <p class="challenge-description">
+                    My apps require smartphones and internet access - the very barriers I'm trying to remove. I'm exploring SMS-based solutions and offline functionality.
+                </p>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-icon">🌍</div>
+                <h3 class="challenge-title">Cultural Context</h3>
+                <p class="challenge-description">
+                    Financial advice that works in the US might not translate to other countries. STEMPowerHer taught me to design for adaptability.
+                </p>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-icon">📊</div>
+                <h3 class="challenge-title">Measuring Impact</h3>
+                <p class="challenge-description">
+                    How do I know if HerStory actually improves financial literacy? I'm learning to build better feedback loops and evaluation metrics into my work.
+                </p>
+            </div>
+        </div>
+
+        <div class="growth-note">
+            <p>These aren't questions I've solved, but they are driving my next steps!</p>
         </div>
     </section>
 
@@ -808,6 +938,24 @@ Currently: Interning at JPMorgan Wealth Management | Researching AI for financia
 
         document.querySelectorAll('.project-card').forEach(card => {
             projectObserver.observe(card);
+        });
+
+        // Slide-in animation for challenge cards
+        const challengeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('slide-in');
+                    }, index * 150);
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.challenge-card').forEach(card => {
+            challengeObserver.observe(card);
         });
 
         // Video autoplay on scroll into view
