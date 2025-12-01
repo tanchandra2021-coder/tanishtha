@@ -546,6 +546,56 @@
             margin: 0;
         }
 
+        /* Resume Section */
+        .resume-container {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 32px;
+            padding: 3rem;
+            margin: 4rem auto;
+            max-width: 1000px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transition: all 0.4s ease;
+        }
+
+        .resume-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .resume-embed {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 16px;
+            background: white;
+        }
+
+        .resume-download {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-download:hover {
+            background: rgba(44, 62, 80, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -611,6 +661,10 @@
                 flex-direction: column;
                 gap: 0;
             }
+
+            .resume-embed {
+                height: 600px;
+            }
         }
     </style>
 </head>
@@ -654,6 +708,9 @@
             </div>
             <div class="nav-item">
                 <a href="#internships" class="nav-link">Internships</a>
+            </div>
+            <div class="nav-item">
+                <a href="#resume" class="nav-link">Resume</a>
             </div>
             <div class="nav-item">
                 <a href="#challenges" class="nav-link">Challenges & Growth</a>
@@ -789,6 +846,39 @@
         </div>
     </section>
 
+    <!-- Internships Section -->
+    <section class="content" id="internships">
+        <h2 class="section-title">Internships</h2>
+        <p class="section-subtitle">Gaining hands-on experience in finance and business operations.</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="wealth management .jpg" alt="Wealth Management" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Wealth Management Intern @ JPMorgan Chase</h3>
+                    <p class="project-description">
+                        At JPMorgan's Wealth Management division, I'm learning how high-net-worth clients build and protect wealth through strategic portfolio construction. Working with tools like Modern Portfolio Theory and eMoney Advisor has shown me the sophisticated resources available to wealthy clients - resources that inspired me to ask: how can we make these insights accessible to everyone, not just the 1%?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="content" id="resume">
+        <h2 class="section-title">Resume</h2>
+        <p class="section-subtitle">View my full professional experience and qualifications.</p>
+        
+        <div class="resume-container">
+            <embed src="Tanishtha Chandra's Completed Resume (1) (1).pdf" type="application/pdf" class="resume-embed">
+            <div style="text-align: center;">
+                <a href="Tanishtha Chandra's Completed Resume (1) (1).pdf" download class="resume-download">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Challenges and Growth Section -->
     <section class="content" id="challenges">
         <h2 class="section-title">Challenges & Growth</h2>
@@ -822,26 +912,6 @@
 
         <div class="growth-note">
             <p>These aren't questions I've solved, but they are driving my next steps!</p>
-        </div>
-    </section>
-
-    <!-- Internships Section -->
-    <section class="content" id="internships">
-        <h2 class="section-title">Internships</h2>
-        <p class="section-subtitle">Gaining hands-on experience in finance and business operations.</p>
-        
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="wealth management .jpg" alt="Wealth Management" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Wealth Management Intern @ JPMorgan Chase</h3>
-                    <p class="project-description">
-                        At JPMorgan's Wealth Management division, I'm learning how high-net-worth clients build and protect wealth through strategic portfolio construction. Working with tools like Modern Portfolio Theory and eMoney Advisor has shown me the sophisticated resources available to wealthy clients - resources that inspired me to ask: how can we make these insights accessible to everyone, not just the 1%?
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 
