@@ -546,6 +546,93 @@
             margin: 0;
         }
 
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 1000px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            color: #6e7681;
+            font-weight: 400;
+        }
+
+        /* Info Lists */
+        .info-list {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+
+        .info-list h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .info-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
         /* Resume Section */
         .resume-container {
             background: rgba(255, 255, 255, 0.4);
@@ -665,6 +752,15 @@
             .resume-embed {
                 height: 600px;
             }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -717,6 +813,9 @@
             </div>
             <div class="nav-item">
                 <a href="#initiatives" class="nav-link">Leadership & Community-Building</a>
+            </div>
+            <div class="nav-item">
+                <a href="#hackathon-impact" class="nav-link">Hackathon Impact</a>
             </div>
         </div>
     </nav>
@@ -940,7 +1039,13 @@
                 <div class="project-content">
                     <h3 class="project-title">STEMPowerHer Hackathon</h3>
                     <p class="project-description">
-                        The best solutions to community problems come from the people who live them. STEMPowerHer Hackathon invites girls from around the world to build AI and business solutions for challenges in their own communities - whether that's financial literacy in rural areas, healthcare access, or educational barriers. We've attracted over 85 participants from 20 countries, each bringing unique perspectives and real-world problems to solve.
+                        The best solutions to community problems come from the people who live them. STEMPowerHer Hackathon invites girls worldwide to build technology addressing real challenges in their communities - from healthcare access in Nigeria to education platforms in Pakistan to agricultural solutions in rural India.
+                        <br><br>
+                        <strong>Our most recent hackathon attracted 209 participants, with 14 professional judges from companies like Meta, Amazon, Pinterest, and Walmart evaluating projects.</strong> We secured corporate sponsorships from CodeCrafters, Interview Buddy, and others, offering nearly $1,000 in tools and resources per first-place winner.
+                        <br><br>
+                        The hackathon runs for a full week on Devpost - the same platform major tech companies use - with five competition tracks: AI for Good, Climate & Agriculture, Women's Safety, HealthTech, and EdTech. Participants work asynchronously across global time zones, accessing workshops, mentorship, and resources through our Discord server.
+                        <br><br>
+                        What makes me proudest: we don't just teach coding. We pair participants with senior engineers at tech companies who mentor them through building applications. The apps belong to them, not me. My role evolved from founder to infrastructure architect - building systems where others can lead.
                     </p>
                 </div>
             </div>
@@ -955,6 +1060,146 @@
                         Many talented girls worldwide lack access to STEM education and role models in the field. The STEMPowerHer Journal showcases research, projects, and innovative ideas from young women in STEM, giving them a platform to share their work and connect with a global community. We've received nearly 30 submissions from 15+ countries across Africa, Asia, and Europe.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Hackathon Impact Section -->
+    <section class="content" id="hackathon-impact">
+        <h2 class="section-title">Hackathon Impact</h2>
+        <p class="section-subtitle">Building professional infrastructure that scales global impact.</p>
+        
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">209</div>
+                <div class="stat-label">Participants in Most Recent Hackathon</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">14</div>
+                <div class="stat-label">Professional Judges from FAANG+ Companies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Corporate Sponsors Secured</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$900+</div>
+                <div class="stat-label">Prize Value per First-Place Winner</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Countries Represented Globally</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Competition Tracks</div>
+            </div>
+        </div>
+
+        <!-- Professional Judges -->
+        <div class="info-list">
+            <h3>Professional Judges</h3>
+            <p style="text-align: center; color: #6e7681; margin-bottom: 1.5rem; font-size: 1.1rem;">
+                Our hackathons are evaluated by senior engineers from leading tech companies who dedicate a week to mentor participants:
+            </p>
+            <ul>
+                <li><strong>Meta</strong> - Machine Learning Engineer</li>
+                <li><strong>Amazon</strong> - Software Engineer</li>
+                <li><strong>Pinterest</strong> - Staff ML Engineer</li>
+                <li><strong>Walmart</strong> - Senior Software Engineer</li>
+                <li><strong>Wayfair</strong> - Engineering & AI Strategy Leader</li>
+                <li><strong>Oracle, Johnson & Johnson, Paramount, American Airlines</strong> - Various Senior Engineering Roles</li>
+            </ul>
+        </div>
+
+        <!-- Corporate Sponsors -->
+        <div class="info-list">
+            <h3>Corporate Sponsors</h3>
+            <p style="text-align: center; color: #6e7681; margin-bottom: 1.5rem; font-size: 1.1rem;">
+                We secured partnerships with leading tech platforms to provide professional-grade tools:
+            </p>
+            <ul>
+                <li><strong>CodeCrafters</strong> - VIP memberships ($720 value)</li>
+                <li><strong>Interview Buddy</strong> - Technical interview practice sessions</li>
+                <li><strong>CleanShot, UniBee, Gen.xyz</strong> - Development tools and resources</li>
+            </ul>
+            <p style="text-align: center; color: #6e7681; margin-top: 1.5rem; font-size: 1.05rem; font-style: italic;">
+                Total prize packages exceed $900 per winner - not cash, but tools that help participants continue building.
+            </p>
+        </div>
+
+        <!-- How We Built This -->
+        <div class="info-list">
+            <h3>How We Built This</h3>
+            <ul>
+                <li><strong>Platform:</strong> Hosted on Devpost, the same professional infrastructure used by major tech companies</li>
+                <li><strong>Duration:</strong> Week-long events (not 24-hour sprints) to accommodate global participation</li>
+                <li><strong>Structure:</strong> 5 competition tracks with weighted judging criteria and professional evaluation</li>
+                <li><strong>Delivery:</strong> Asynchronous workshops designed for participants across all time zones</li>
+                <li><strong>Community:</strong> Discord server with 25 staff members providing mentorship and support</li>
+                <li><strong>Resources:</strong> Comprehensive participant packets, workshop videos, and direct mentor access</li>
+            </ul>
+        </div>
+
+        <!-- What Participants Build -->
+        <div class="info-list">
+            <h3>What Participants Build</h3>
+            <p style="text-align: center; color: #6e7681; margin-bottom: 1.5rem; font-size: 1.1rem;">
+                Projects address real problems in their communities:
+            </p>
+            <ul>
+                <li>Healthcare access tools for underserved populations in Nigeria</li>
+                <li>Educational platforms expanding STEM access in Pakistan</li>
+                <li>Agricultural solutions for rural farming communities in India</li>
+                <li>Financial literacy applications serving global audiences</li>
+                <li>Women's safety technologies addressing local security challenges</li>
+            </ul>
+            <p style="text-align: center; color: #6e7681; margin-top: 1.5rem; font-size: 1.05rem; font-style: italic;">
+                The applications belong to the participants. They identify the problems, design the solutions, and scale the impact within their own communities.
+            </p>
+        </div>
+
+        <!-- Competition Tracks -->
+        <div class="challenges-grid" style="margin-top: 3rem;">
+            <div class="challenge-card">
+                <div class="challenge-icon">🤖</div>
+                <h3 class="challenge-title">AI for Good</h3>
+                <p class="challenge-description">
+                    Using artificial intelligence to solve social challenges and create positive community impact.
+                </p>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-icon">🌱</div>
+                <h3 class="challenge-title">Climate & Agriculture</h3>
+                <p class="challenge-description">
+                    Building sustainable solutions for environmental protection and agricultural innovation.
+                </p>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-icon">🛡️</div>
+                <h3 class="challenge-title">Women's Safety</h3>
+                <p class="challenge-description">
+                    Creating technologies that enhance security and support for women worldwide.
+                </p>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-icon">⚕️</div>
+                <h3 class="challenge-title">HealthTech</h3>
+                <p class="challenge-description">
+                    Developing accessible healthcare solutions for underserved populations.
+                </p>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-icon">📚</div>
+                <h3 class="challenge-title">EdTech</h3>
+                <p class="challenge-description">
+                    Democratizing education through innovative learning platforms and tools.
+                </p>
             </div>
         </div>
     </section>
@@ -1070,6 +1315,27 @@ Currently: Interning at JPMorgan Wealth Management | Researching AI for financia
                 hero.style.transform = `translateY(${scrolled * 0.3}px)`;
                 hero.style.opacity = 1 - scrolled / 800;
             }
+        });
+
+        // Animate stat cards on scroll
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.5s ease';
+            statObserver.observe(card);
         });
     </script>
 </body>
